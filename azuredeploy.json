@@ -44,11 +44,11 @@
         },
         "numberCpuCores": {
             "type": "string",
-            "defaultValue": "2"
+            "defaultValue": "3"
         },
         "memory": {
             "type": "string",
-            "defaultValue": "4"
+            "defaultValue": "6"
         },
         "restartPolicy": {
             "type": "string",
@@ -167,6 +167,18 @@
                                 {
                                     "name": "WORLD_NAME",
                                     "value": "[parameters('valheimWorldName')]"
+                                },
+								{
+                                    "name": "UPDATE_CRON",
+                                    "value": "0 * * * *"
+                                }
+								,{
+                                    "name": "BACKUPS_CRON",
+                                    "value": "0 */3 * * *"
+                                }
+                                ,{
+                                    "name": "BACKUPS_MAX_AGE",
+                                    "value": "2"
                                 }
                             ],
                             "ports": "[parameters('ports')]",
