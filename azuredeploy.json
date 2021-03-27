@@ -44,11 +44,11 @@
         },
         "numberCpuCores": {
             "type": "string",
-            "defaultValue": "4"
+            "defaultValue": "2"
         },
         "memory": {
             "type": "string",
-            "defaultValue": "8"
+            "defaultValue": "4"
         },
         "restartPolicy": {
             "type": "string",
