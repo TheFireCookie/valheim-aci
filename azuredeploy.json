@@ -170,7 +170,7 @@
                                 },
 								{
                                     "name": "UPDATE_CRON",
-                                    "value": "0 * * * *"
+                                    "value": "*/30 * * * *"
                                 }
 								,{
                                     "name": "BACKUPS_CRON",
@@ -179,6 +179,10 @@
                                 ,{
                                     "name": "BACKUPS_MAX_AGE",
                                     "value": "2"
+                                }
+								,{
+                                    "name": "VALHEIM_PLUS",
+                                    "value": "true"
                                 }
                             ],
                             "ports": "[parameters('ports')]",
