@@ -96,7 +96,7 @@
             "type": "Microsoft.ContainerInstance/containerGroups",
             "apiVersion": "2018-10-01",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', 'stg6v7gr24txyrtw')]"
+                "[resourceId('Microsoft.Storage/storageAccounts', stg6v7gr24txyrtw)]"
             ],
             "properties": {
                 "containers": [
@@ -165,7 +165,7 @@
                             "readOnly": false,
                             "shareName": "config",
                             "storageAccountName": "stg6v7gr24txyrtw",
-                            "storageAccountKey": "[listKeys('stg6v7gr24txyrtw', '2017-10-01').keys[0].value]"
+                            "storageAccountKey": "stg6v7gr24txyrtw, '2017-10-01').keys[0].value]"
                         }
                     }
                 ]
