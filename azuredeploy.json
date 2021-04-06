@@ -95,6 +95,9 @@
             "name": "[parameters('containerName')]",
             "type": "Microsoft.ContainerInstance/containerGroups",
             "apiVersion": "2018-10-01",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', 'stg6v7gr24txyrtw')]"
+            ],
             "properties": {
                 "containers": [
                     {
