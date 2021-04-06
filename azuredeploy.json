@@ -87,61 +87,16 @@
         },
         "dnsNameLabel": {
             "type": "string"
-        },
-        "storageAccountType": {
-            "type": "string",
-            "defaultValue": "Standard_LRS",
-            "allowedValues": [
-                "Standard_LRS",
-                "Standard_GRS"
-            ],
-            "metadata": {
-                "description": "Storage account type"
-            }
-        },
-        "storageAccountName": {
-            "type": "string",
-            "defaultValue": "[concat('stg', uniqueString(resourceGroup().id))]"
-        },
-        "storageFileShareName": {
-            "type": "string",
-            "defaultValue": "config"
         }
-    },
-    "variables": {
-        "fileShareName": "[concat('/default/', parameters('storageFileShareName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('storageAccountName')]",
-            "apiVersion": "2019-06-01",
-            "location": "[parameters('location')]",
-            "sku": {
-                "name": "[parameters('storageAccountType')]"
-            },
-            "properties": {
-                "accessTier": "Hot"
-            },
-            "kind": "StorageV2",
-            "resources": [
-                {
-                    "type": "Microsoft.Storage/storageAccounts/fileServices/shares",
-                    "apiVersion": "2019-06-01",
-                    "name": "[concat(parameters('storageAccountName'), variables('fileShareName'))]",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-                    ]
-                }
-            ]
-        },        
+    }
+    "resources": [     
         {
             "location": "[parameters('location')]",
             "name": "[parameters('containerName')]",
             "type": "Microsoft.ContainerInstance/containerGroups",
             "apiVersion": "2018-10-01",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', stg6v7gr24txyrtw)]"
             ],
             "properties": {
                 "containers": [
@@ -208,9 +163,9 @@
                         "name": "config",
                         "azureFile": {
                             "readOnly": false,
-                            "shareName": "[parameters('storageFileShareName')]",
-                            "storageAccountName": "[parameters('storageAccountName')]",
-                            "storageAccountKey": "[listKeys(parameters('storageAccountName'), '2017-10-01').keys[0].value]"
+                            "shareName": "config",
+                            "storageAccountName": "stg6v7gr24txyrtw",
+                            "storageAccountKey": "stg6v7gr24txyrtw, '2017-10-01').keys[0].value]"
                         }
                     }
                 ]
